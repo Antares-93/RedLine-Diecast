@@ -164,8 +164,8 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi pada lingkungan lokal:
 
 ### 1. Clone Repositori
 ```bash
-git clone https://github.com/username/redline-diecast-vault.git
-cd redline-diecast-vault
+git clone https://github.com/Antares-93/RedLine-Diecast.git
+cd RedLine-Diecast
 ```
 
 ### 2. Instalasi Dependensi PHP
@@ -215,7 +215,7 @@ Akses aplikasi melalui browser di `http://127.0.0.1:8000`.
 
 ---
 
-## 💳 Konfigurasi Midtrans Gateway
+## Konfigurasi Midtrans Gateway
 
 Dapatkan kredensial pengujian dari akun [Midtrans Sandbox](https://dashboard.sandbox.midtrans.com/) pada menu **Settings > Access Keys**, kemudian tambahkan ke berkas `.env`:
 
@@ -229,7 +229,7 @@ MIDTRANS_IS_3DS=true
 
 ---
 
-## 🧪 Simulasi & Pengujian Pembayaran
+## Simulasi & Pengujian Pembayaran
 
 Saat menguji transaksi di localhost tanpa konfigurasi public webhook/ngrok:
 
