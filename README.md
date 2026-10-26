@@ -243,3 +243,16 @@ Saat menguji transaksi di localhost tanpa konfigurasi public webhook/ngrok:
    * Mengubah status pesanan menjadi **Lunas (Completed)**.
    * Merekam label metode pembayaran (contoh: *BCA Virtual Account*) ke nota.
    * Memotong stok unit fisik diecast terkait.
+
+---
+
+## Pratinjau Sistem
+
+| Dashboard Admin | Katalog Kolektor |
+| :---: | :---: |
+| ![Dashboard Admin](docs/dashboard_admin.png) | ![Katalog Customer](docs/katalog_customer.png) |
+| **Halaman Checkout** | **Pembayaran Midtrans** |
+| ![Checkout Customer](docs/checkout_customer.png) | ![Midtrans Customer](docs/midtrans_customer.png) |
+
+### Riwayat Restock (PO Staff)
+![Riwayat PO](docs/riwayat_po.png)
