@@ -46,6 +46,19 @@ Sistem ini memiliki dua antarmuka utama:
 
 ---
 
+## Akun Demo 
+
+Gunakan akun pengujian bawaan seeder berikut:
+
+| Role | Email | Password | Hak Akses |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin@redline.test` | `123456` | Akses penuh dashboard, PO, dan master data |
+| **Staff Gudang** | `staff@redline.test` | `123456` | Kelola stok masuk dan Restock (PO) |
+| **Customer 1** | `customer@redline.test` | `123456` | Beli unit diecast dan lihat nota pesanan |
+| **Customer 2** | `bagas@redline.test` | `123456` | Beli unit diecast dan lihat nota pesanan |
+
+---
+
 ## Tech Stack
 
 * **Backend:** Laravel 12 (PHP 8.2+)
