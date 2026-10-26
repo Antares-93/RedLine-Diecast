@@ -46,19 +46,6 @@ Sistem ini memiliki dua antarmuka utama:
 
 ---
 
-## Akun Demo 
-
-Gunakan akun pengujian bawaan seeder berikut:
-
-| Role | Email | Password | Hak Akses |
-| :--- | :--- | :--- | :--- |
-| **Admin** | `admin@redline.test` | `123456` | Akses penuh dashboard, PO, dan master data |
-| **Staff Gudang** | `staff@redline.test` | `123456` | Kelola stok masuk dan Restock (PO) |
-| **Customer 1** | `customer@redline.test` | `123456` | Beli unit diecast dan lihat nota pesanan |
-| **Customer 2** | `bagas@redline.test` | `123456` | Beli unit diecast dan lihat nota pesanan |
-
----
-
 ## Tech Stack
 
 * **Backend:** Laravel 12 (PHP 8.2+)
@@ -73,9 +60,87 @@ Gunakan akun pengujian bawaan seeder berikut:
 
 Diagram di bawah ini menggambarkan struktur entitas database dan relasi relasional yang digunakan:
 
-## 🗄️ Entity Relationship Diagram (ERD)
+```mermaid
+erDiagram
+    USERS ||--o{ SALES : "melakukan"
+    USERS ||--o{ PURCHASES : "menginput"
+    SUPPLIERS ||--o{ PURCHASES : "memasok"
+    SALES ||--|{ SALE_ITEMS : "memiliki"
+    PRODUCTS ||--o{ SALE_ITEMS : "tercantum_pada"
+    PURCHASES ||--|{ PURCHASE_ITEMS : "memuat"
+    PRODUCTS ||--o{ PURCHASE_ITEMS : "dipesan_pada"
 
-![ERD RedLine Diecast](docs/erd-RedLine.png)
+    USERS {
+        bigint id PK
+        string name
+        string email UK
+        string password
+        enum role "admin, staff, customer"
+        timestamps created_at
+    }
+
+    PRODUCTS {
+        bigint id PK
+        string sku UK
+        string name
+        string brand
+        string scale
+        integer price
+        integer purchase_price
+        integer stock
+        integer minimum_stock
+        string image
+        timestamps created_at
+    }
+
+    SALES {
+        bigint id PK
+        bigint user_id FK
+        string sale_number UK
+        integer total
+        string payment_status "pending, paid"
+        string payment_type
+        string status "pending, completed"
+        string snap_token
+        timestamps created_at
+    }
+
+    SALE_ITEMS {
+        bigint id PK
+        bigint sale_id FK
+        bigint product_id FK
+        integer quantity
+        integer unit_price
+        integer subtotal
+    }
+
+    SUPPLIERS {
+        bigint id PK
+        string name
+        string contact_person
+        string phone
+        text address
+        timestamps created_at
+    }
+
+    PURCHASES {
+        bigint id PK
+        string purchase_number UK
+        bigint supplier_id FK
+        bigint user_id FK
+        integer total
+        timestamps created_at
+    }
+
+    PURCHASE_ITEMS {
+        bigint id PK
+        bigint purchase_id FK
+        bigint product_id FK
+        integer quantity
+        integer unit_price
+        integer subtotal
+    }
+```
 
 ---
 
